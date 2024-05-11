@@ -2,7 +2,7 @@
 
 Clone the repository:
    ```bash
-   git clone https://github.com/your-username/project-name.git
+   git clone https://github.com/shaunak-09/Cobalt_assignment.git
    ```
 
 ## BACKEND
@@ -53,7 +53,7 @@ This is the backend directory for the project.
 
   ### Setup Instructions
 
-1. Navigate to the backend directory:
+1. Navigate to the frontend directory:
    ```bash
    cd Cobalt_assignment/client
    ```
@@ -61,10 +61,13 @@ This is the backend directory for the project.
    ```bash
    npm i
    ```
-3. Start the development server:
+3. Start the development client:
     ```bash
     npm start
     ```
+
+### Usage Guidelines
+1. The frontend client will run on port 3000 by default.
 
 
 
