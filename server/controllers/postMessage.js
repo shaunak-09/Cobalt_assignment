@@ -4,8 +4,7 @@ const axios=require('axios');
 
  const postMessage=async (req, res) => {
     try{
-        // console.log(req.session);
-        // console.log(req.cookies);
+
     const token = req.body.token;
     const apptoken=process.env.SLACK_TOKEN;
     const web = new WebClient(apptoken);

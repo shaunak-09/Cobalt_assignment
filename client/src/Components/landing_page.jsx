@@ -1,12 +1,13 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import SlackLogin from 'react-slack-login';
-import { redirect } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
 function Landingpage() {
     const [userProfile, setUserProfile] = useState(null);
+    const [slackToken, setSlackToken] = useState(null);
     const navigate = useNavigate();
     useEffect(() => {
         const parseCookies = (cookieString) => {
@@ -16,6 +17,8 @@ function Landingpage() {
               return acc;
             }, {});
           };
+          const token=localStorage.getItem('slackToken');
+          setSlackToken(token)
       
           // Get all cookies
           const cookies = parseCookies(document.cookie);
@@ -59,9 +62,11 @@ function Landingpage() {
   slackClientId='7100793984468.7095432996021'
   slackUserScope='openid profile'
 /> */}
-
+    {!slackToken || slackToken == 'undefined' ? 
     <a
-      href="https://slack.com/openid/connect/authorize?scope=openid&amp;response_type=code&amp;redirect_uri=https%3A%2F%2F59eb-2405-201-9001-e097-b4cd-311e-a287-8a4e.ngrok-free.app%2Fapi%2Fslack&amp;client_id=7100793984468.7095432996021"
+      href="https://slack.com/openid/connect/authorize?scope=openid&amp;response_type=code&amp;
+            redirect_uri=https://singularly-enabling-bass.ngrok-free.app/api/slack&amp;
+            client_id=7100793984468.7095432996021"
       style={{
         alignItems: 'center',
         color: '#fff',
@@ -90,6 +95,13 @@ function Landingpage() {
       </svg>
       Sign in with Slack
     </a>
+    :
+    (
+        <Link to="/msgForm/msg" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Message</Link>
+
+    )
+
+}
     
 
         
